@@ -96,11 +96,11 @@ To get started with this project, follow these steps:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-repo/my-moves.git
+   git clone https://github.com/vikas-500apps/my-moves-assignment.git
    ```
 2. **Navigate to the Project Directory**
     ````bash
-    cd my-moves
+    cd my-moves-assignment
     ````
 3. **Install Dependencies**
 - Install the required dependencies using npm or yarn:
