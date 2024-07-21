@@ -67,19 +67,19 @@ const MovieList = () => {
     );
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">My Moves</h1>
+    <div className="p-4 sm:p-6 lg:p-8">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">My Moves</h1>
       <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
         {movies.map((movie, index) => (
           <div
             key={index}
             className="bg-white shadow-md rounded-lg overflow-hidden"
           >
-            <div className="flex items-start">
+            <div className="flex flex-col sm:flex-row items-start">
               {/* From Address */}
-              <div className="p-4 w-1/3">
-                <h2 className="text-lg font-semibold">From</h2>
-                <p className="mt-2">
+              <div className="p-2 sm:p-4 w-full sm:w-1/3">
+                <h2 className="text-md sm:text-lg font-semibold">From</h2>
+                <p className="mt-1 sm:mt-2">
                   {movie.from_address.firstName &&
                     movie.from_address.firstName + ", "}
                   {movie.from_address.lastName &&
@@ -98,14 +98,14 @@ const MovieList = () => {
               </div>
 
               {/* Arrow Icon */}
-              <div className="flex items-center mt-12 justify-center w-16 h-16 bg-transparent text-orange-500 rounded-full shadow-lg mx-6">
-                <i className="fas fa-arrow-right text-2xl"></i>
+              <div className="flex items-center mt-4 sm:mt-12 justify-center w-12 sm:w-16 h-12 sm:h-16 bg-transparent text-orange-500 rounded-full shadow-lg mx-4 sm:mx-6">
+                <i className="fas fa-arrow-right text-xl sm:text-2xl"></i>
               </div>
 
               {/* To Address */}
-              <div className="p-4 w-1/3">
-                <h2 className="text-lg font-semibold">To</h2>
-                <p className="mt-2">
+              <div className="p-2 sm:p-4 w-full sm:w-1/3">
+                <h2 className="text-md sm:text-lg font-semibold">To</h2>
+                <p className="mt-1 sm:mt-2">
                   {movie.to_address.firstName &&
                     movie.to_address.firstName + ", "}
                   {movie.to_address.toAddress &&
@@ -120,56 +120,58 @@ const MovieList = () => {
               </div>
 
               {/* Request# */}
-              <div className="p-4 w-1/3">
-                <h2 className="text-lg font-semibold text-center">Request#</h2>
-                <p className="mt-2 text-center text-orange-600">
+              <div className="p-2 sm:p-4 w-full sm:w-1/3">
+                <h2 className="text-md sm:text-lg font-semibold text-center">Request#</h2>
+                <p className="mt-1 sm:mt-2 text-center text-orange-600">
                   {movie.estimate_id || "N/A"}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex flex-wrap items-center p-4">
               {/* Property size */}
-              <div className="flex items-center justify-center w-16 h-16 text-orange-500">
-                <i className="fas fa-house text-2xl"></i>
+              <div className="flex items-center justify-center w-12 h-12 text-orange-500">
+                <i className="fas fa-house text-xl"></i>
               </div>
-              <p className="mr-2">{movie.property_size}</p>
+              <p className="mr-2 text-sm sm:text-base">{movie.property_size}</p>
+              
               {/* Number of floor */}
-              <div className="flex items-center justify-center w-16 h-16 text-orange-500">
-                <i className="fas fa-boxes-stacked text-2xl"></i>
+              <div className="flex items-center justify-center w-12 h-12 text-orange-500">
+                <i className="fas fa-boxes-stacked text-xl"></i>
               </div>
-              <p className="mr-2">{movie.new_floor_no}</p>
+              <p className="mr-2 text-sm sm:text-base">{movie.new_floor_no}</p>
+              
               {/* Distance */}
-              <div className="flex items-center justify-center w-16 h-16 text-orange-500">
-                <i className="fas fa-location-dot text-2xl"></i>
+              <div className="flex items-center justify-center w-12 h-12 text-orange-500">
+                <i className="fas fa-location-dot text-xl"></i>
               </div>
-              <p className="mr-2">{movie.distance}</p>
+              <p className="mr-2 text-sm sm:text-base">{movie.distance}</p>
 
               {/* Order Date */}
-              <div className="flex items-center justify-center w-16 h-16 text-orange-500">
-                <i className="fas fa-calendar-days text-2xl"></i>
+              <div className="flex items-center justify-center w-12 h-12 text-orange-500">
+                <i className="fas fa-calendar-days text-xl"></i>
               </div>
-              <p className="mr-2">{formatDate(movie.order_date)} {" "} <i className="fas fa-pen text-xl px-2"></i></p>
+              <p className="mr-2 text-sm sm:text-base">{formatDate(movie.order_date)} {" "} <i className="fas fa-pen text-base px-2"></i></p>
 
               {/* Buttons */}
-              <div className="flex gap-4 ml-[29%]">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 ml-0 sm:ml-[29%]">
                 <button
-                  className="border-2 border-orange-500 text-orange-500 py-2 px-4 rounded hover:bg-orange-500 hover:text-white transition-colors"
+                  className="border-2 border-orange-500 text-orange-500 py-2 px-4 rounded hover:bg-orange-500 hover:text-white transition-colors text-sm sm:text-base"
                   onClick={() => handleViewMoveDetails(index)}
                 >
                   View Move Details
                 </button>
-                <button className="border-2 border-orange-500 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-500 hover:text-white transition-colors">
+                <button className="border-2 border-orange-500 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-500 hover:text-white transition-colors text-sm sm:text-base">
                   Quotes Awaiting
                 </button>
               </div>
             </div>
             {/* Disclaimer */}
-            <div className="flex items-center">
-              <div className="flex items-center justify-center w-16 h-16 text-orange-500">
-                <i className="fas fa-triangle-exclamation text-2xl"></i>
+            <div className="flex items-center p-4">
+              <div className="flex items-center justify-center w-12 h-12 text-orange-500">
+                <i className="fas fa-triangle-exclamation text-xl"></i>
               </div>
-              <p className="mr-2">
+              <p className="mr-2 text-sm sm:text-base">
                 Disclaimer : Please update your move date before two days of
                 shifting
               </p>
